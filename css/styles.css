@@ -623,15 +623,15 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transform: scale(1);
-  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1), scale 2000ms linear;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1), scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: scale(4);
+  transform: scale(0.9);
 }
 
 .modal {
@@ -752,7 +752,8 @@ color: rgba(117, 117, 117, 0.5);
 }
 
 .user-license-label {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-bottom: 30px;
   font-family: var(--font-family-main);
   font-size: 14px;
@@ -761,20 +762,39 @@ color: rgba(117, 117, 117, 0.5);
   color: var(--color-text-main);
 }
 
-.user-license-label::before {
-  content: '';
+.user-license-check {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.check-icon {
   display: inline-block;
   width: 16px;
   height: 15px;
   margin-right: 7px;
-  border: 1.5px solid #212121;
-  background-color: inherit;
+  border: 2px solid #212121;
+  border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.user-license-check:focus + .check-icon{
+  outline: none;
+  border-color: var(--color-logo);
+}
+
+.user-license-check:checked + .check-icon {
+  background-color: var(--color-logo);
+  border-color: transparent;
+  background-origin: border-box;
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
 }
 
 /* ==========START FORMS========== */
 .mailing-list {
-  background-color: inherit;
+  background-color: transparent;
   margin-left: 93px;
 } 
 
@@ -794,7 +814,7 @@ color: var(--color-logo-dark-bgd);
 padding: 15px 16px;
 margin-right: 12px;
 color: var(--color-logo-dark-bgd);
-background-color: inherit;
+background-color: transparent;
 border: 1px solid rgba(255, 255, 255, 0.3);
 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 border-radius: 4px;
@@ -815,5 +835,5 @@ color: rgba(255, 255, 255, 0.6);
 }
 
 .mailing-list-btn {
-display: inline;
+display: inline-block;
 }

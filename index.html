@@ -432,7 +432,7 @@
             </li>
           </ul>
         </div>
-        <form class="mailing-list">
+        <form method="POST" class="mailing-list">
           <label class="mailing-list-label" for="distribution">Подпишитесь на рассылку</label>
           <input
             class="mailing-list-input"
@@ -440,11 +440,15 @@
             name="input-email"
             id="distribution"
             placeholder="E-mail"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            title="example_01@example.com"
           />
           <button class="button mailing-list-btn" type="submit">Подписаться</button>
         </form>
       </div>
     </footer>
+    <!-- MODAL WINDOW -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
         <button type="button" class="modal-close-btn" data-modal-close>
@@ -452,40 +456,50 @@
             <use href="./images/icons.svg#icon-close-black"></use>
           </svg>
         </button>
-
-        <form class="user-data-form" method="post">
+        <!-- FORM+INPUT -->
+        <form method="POST" class="user-data-form" method="post">
           <p class="user-data-title">Оставьте свои данные, мы вам перезвоним</p>
-          <label class="user-data-label" for="user-name">Имя</label>
+          <label class="user-data-label" for="user-data-name">Имя</label>
           <div class="user-data-input-wrapper">
             <input
               class="user-data-input"
               type="text"
-              id="user-name"
+              name="user-name"
+              id="user-data-name"
               required
               minlength="2"
               pattern="^[a-zA-Zа-яА-Я]+\s[a-zA-Zа-яА-Я]+$"
             />
             <svg class="user-data-icon" width="18" height="18">
-              <use href="./images/icons.svg#icon-man"></use>
+              <use href="./images/icons.svg#icon-silhouette"></use>
             </svg>
           </div>
-          <label class="user-data-label" for="user-tel">Телефон</label>
+          <label class="user-data-label" for="user-data-tel">Телефон</label>
           <div class="user-data-input-wrapper">
             <input
               class="user-data-input"
               type="tel"
-              id="user-tel"
+              name="user-tel"
+              id="user-data-tel"
               required
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
-              title="096-xxx-xx-xx"
+              title="xxx-xxx-xx-xx"
             />
             <svg class="user-data-icon" width="18" height="18">
               <use href="./images/icons.svg#icon-handset"></use>
             </svg>
           </div>
-          <label class="user-data-label" for="user-email">Почта</label>
+          <label class="user-data-label" for="user-data-email">Почта</label>
           <div class="user-data-input-wrapper">
-            <input class="user-data-input" type="email" id="user-email" required />
+            <input
+              class="user-data-input"
+              type="email"
+              name="user-email"
+              id="user-data-email"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              title="example_01@example.com"
+            />
             <svg class="user-data-icon" width="18" height="18">
               <use href="./images/icons.svg#icon-letter"></use>
             </svg>
@@ -497,16 +511,18 @@
             id="user-data-comments"
             placeholder="Введите текст"
           ></textarea>
-          <input
-            class="user-license-check"
-            type="checkbox"
-            name="license-agrement"
-            id="user-license-agreement"
-            required
-          />
-          <label class="user-license-label" for="user-license-agreement"
-            >Соглашаюсь с рассылкой и принимаю&nbsp<a href="#">Условия договора</a></label
-          >
+
+          <label class="user-license-label">
+            <input
+              class="user-license-check"
+              type="checkbox"
+              name="license-agrement"
+              id="user-license-agreement"
+              required
+            />
+            <span class="check-icon"></span>
+            <span>Соглашаюсь с рассылкой и принимаю&nbsp<a href="#">Условия договора</a></span>
+          </label>
           <button class="button" type="submit">Отправить</button>
         </form>
       </div>
