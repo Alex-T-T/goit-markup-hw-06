@@ -386,7 +386,7 @@
             <ul class="adress-list list">
               <li class="adress-item">
                 <a class="adress-location link" href="https://goo.gl/maps/FvpanueBwpg35L5F7"
-                  >г. Киев, бульвар Леси Украинки, 26</a
+                  >г. Киев, пр-т Леси Украинки, 26</a
                 >
               </li>
               <li class="adress-item">
@@ -434,17 +434,24 @@
         </div>
         <form method="POST" class="mailing-list">
           <label class="mailing-list-label" for="distribution">Подпишитесь на рассылку</label>
-          <input
-            class="mailing-list-input"
-            type="email"
-            name="input-email"
-            id="distribution"
-            placeholder="E-mail"
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            title="example_01@example.com"
-          />
-          <button class="button mailing-list-btn" type="submit">Подписаться</button>
+          <div class="mailing-list-wrapper">
+            <input
+              class="mailing-list-input"
+              type="email"
+              name="input-email"
+              id="distribution"
+              placeholder="E-mail"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              title="example_01@example.com"
+            />
+            <button class="button mailing-list-btn" type="submit">
+              <span>Подписаться</span>
+              <svg class="button-icon" width="24" height="24">
+                <use href="./images/icons.svg#icon-paper-plane"></use>
+              </svg>
+            </button>
+          </div>
         </form>
       </div>
     </footer>
@@ -521,7 +528,11 @@
               required
             />
             <span class="check-icon"></span>
-            <span>Соглашаюсь с рассылкой и принимаю&nbsp<a href="#">Условия договора</a></span>
+            <span
+              >Соглашаюсь с рассылкой и принимаю&nbsp<a class="user-license-link link" href="#"
+                >Условия договора</a
+              ></span
+            >
           </label>
           <button class="button" type="submit">Отправить</button>
         </form>

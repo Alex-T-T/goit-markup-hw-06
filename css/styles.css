@@ -457,7 +457,7 @@ img {
 .footer-container {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+
 }
 .footer-adress {
   margin-right: 70px;
@@ -697,6 +697,7 @@ padding: 40px;
 }
 
 .user-data-label {
+  display: block;
 margin-bottom: 4px;
 font-family: var(--font-family-main);
 font-size: 12px;
@@ -742,6 +743,7 @@ color: var(--color-text-main);
   resize: none;
   padding: 12px 16px;
   margin-bottom: 20px;
+  height: 120px;
 }
 
 .textarea::placeholder{
@@ -753,6 +755,7 @@ color: rgba(117, 117, 117, 0.5);
 
 .user-license-label {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 30px;
   font-family: var(--font-family-main);
@@ -792,11 +795,20 @@ color: rgba(117, 117, 117, 0.5);
   background-size: contain;
 }
 
+.user-license-link {
+  color: #2196f3;
+}
 /* ==========START FORMS========== */
 .mailing-list {
   background-color: transparent;
   margin-left: 93px;
+  flex-grow: 1;
 } 
+.mailing-list-wrapper {
+  display: flex;
+  align-items: center;
+
+}
 
 .mailing-list-label {
 display: block;
@@ -811,6 +823,7 @@ color: var(--color-logo-dark-bgd);
 }
 
 .mailing-list-input {
+flex-grow: 1;
 padding: 15px 16px;
 margin-right: 12px;
 color: var(--color-logo-dark-bgd);
@@ -834,6 +847,6 @@ color: rgba(255, 255, 255, 0.6);
   border-color: var(--color-logo);
 }
 
-.mailing-list-btn {
-display: inline-block;
+.button-icon {
+  margin-left: 10px;
 }
